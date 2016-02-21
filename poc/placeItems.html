@@ -14,6 +14,7 @@
       <div class="prompt">> Look</div>
       <div>You are in your own stable.</div>
       <div>The reception area is lavishly decorated, mainly with gold and silver statues. The floor is made of dark oak planks polished with linseed oil. The walls are made of polished granite and are adorned with various ornate carvings. There are several pieces of expensive furniture, mainly made of dark oak.</div>
+      <div>There are doors to the North and South. There is a passage to the West.</div>
       <div>There are several items here.</div>
       <div class="prompt">> Look items</div>
       <ul class="naked-list list">
@@ -34,7 +35,21 @@
         <li>Take</li>
         <li>Deposit</li>
         <li>Examine</li>
+        <li>Close</li>
       </ul>
+      <div>What do you want to do? <span class="answer">List</span></div>
+      <ul class="naked-list list">
+        <li>. Bananas <span class="stack">[16]</span></li>
+        <li>. Small Iron Pot</li>
+        <li>. Frogs Eyes <span class="stack">[4]</span></li>
+        <li>. Spider Egg</li>
+        <li>. Shiny Glass Vials <span class="stack">[9]</span></li>
+      </ul>
+      <div class="list-more">Showing 5 of 16. Show more? <span class="answer">No</span></div>
+      <div>What do you want to do? <span class="answer">Examine Bananas</span></div>
+      <div>They are yellow, and curved.</div>
+      <div>What do you want to do? <span class="answer">Close Ornate Mahogany Chest</span></div>
+      <div class="prompt">> </div>
     </section>
     <footer class="footer">
       <div>&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;&#8209;</div>
@@ -45,5 +60,11 @@
       <div>Capt. Luck  HP 212/212  MP 105/106</div>
     </footer>
   </article>
+  <script>
+    var main = document.querySelector( '.main' )
+    setTimeout( () => {
+      main.scrollTop = 2000
+    }, 100 )
+  </script>
 </body>
 </html>
