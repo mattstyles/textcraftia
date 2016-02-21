@@ -1,0 +1,124 @@
+
+@import './utils';
+@import './colours';
+
+@--fontSize: 13px;
+@--lineHeight: 13px * 1.6;
+// Most accurate for letter width seems to be using getBoundingClientRect on
+// a span containing a letter
+@--letterWidth: 7.8125px;
+
+@--mainWidth: ( 80 * @--letterWidth ) + ( @--mainPad * 2 );
+@--mainPad: 5px;
+
+/*----------------------*
+ * Containers
+ *----------------------*/
+
+body {
+  margin: 0;
+  background: @--color-black;
+  color: @--color-white;
+  font-family: 'Dejavu Sans Mono', monospace;
+  font-size: @--fontSize;
+  line-height: @--lineHeight;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: @--mainWidth;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1;
+  overflow: scroll;
+  width: 100%;
+  padding: @--mainPad;
+  box-sizing: border-box;
+}
+
+.header,
+.footer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: @--mainPad;
+  flex: initial;
+}
+
+.header {
+  min-height: 45px;
+}
+
+.main div,
+.header div,
+.footer div {
+  white-space: pre-wrap;
+}
+
+.naked-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+
+/*----------------------*
+ * Footer section
+ *----------------------*/
+
+.location {
+  color: @--color-db-orange;
+}
+
+
+/*----------------------*
+ * Header/Chat section
+ *----------------------*/
+
+.chat-name {
+  color: @--color-db-blue;
+}
+
+
+/*----------------------*
+ * Main
+ *----------------------*/
+
+.main div {
+  margin: @--lineHeight / 2 0;
+}
+
+.main .prompt {
+  margin-top: @--lineHeight;
+  color: @--color-db-yellow;
+}
+
+.list-more {
+  color: @--color-db-lightgrey;
+}
+
+.list-more .answer {
+  color: @--color-db-yellow;
+}
+
+.list-hz li {
+  display: inline;
+  padding: 0 @--letterWidth 0 0;
+  color: @--color-db-lightblue;
+
+  &.selected {
+    color: @--color-black;
+    background: @--color-white;
+  }
+}
+
+.main .location {
+
+}
+
+.location .detail {
+  color: @--color-db-green;
+}
