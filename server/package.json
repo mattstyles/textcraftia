@@ -1,0 +1,34 @@
+{
+  "name": "textcraftia-server",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Textcraftia Authoritative Server",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --out-dir lib",
+    "watch": "babel src --out-dir lib --watch",
+    "start-db": "DIR=$HOME/.rethinkdb/textcraftia; mkdir -p $DIR; rethinkdb -d $DIR",
+    "start": "node lib | bunyan -o short"
+  },
+  "babel": {
+    "presets": [
+      "node5"
+    ]
+  },
+  "author": "Matt Styles",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-preset-node5": "^10.6.0",
+    "bunyan": "^1.7.0"
+  },
+  "dependencies": {
+    "koa": "^2.0.0-alpha.3",
+    "koa-bunyan-log": "^2.0.1",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "^5.4.0",
+    "koa-socket": "^4.0.0",
+    "rethinkdb": "^2.2.1"
+  }
+}
