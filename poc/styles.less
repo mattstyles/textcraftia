@@ -80,6 +80,10 @@ body {
 
 .chat-name {
   color: @--color-db-blue;
+
+  &.group {
+    color: @--color-db-green;
+  }
 }
 
 
@@ -104,6 +108,26 @@ body {
   color: @--color-db-yellow;
 }
 
+.person {
+  color: @--color-db-blue;
+
+  &.ally {
+    color: @--color-db-green;
+  }
+}
+
+.item {
+  color: @--color-db-brown;
+}
+
+.hero-name {
+  color: @--color-db-lightblue;
+}
+
+.list li {
+  white-space: pre-wrap;
+}
+
 .list-hz li {
   display: inline;
   padding: 0 @--letterWidth 0 0;
@@ -113,6 +137,10 @@ body {
     color: @--color-black;
     background: @--color-white;
   }
+}
+
+.list-ally {
+  color: @--color-db-green;
 }
 
 .stack {
@@ -125,4 +153,12 @@ body {
 
 .location .detail {
   color: @--color-db-green;
+}
+
+/*----------------------*
+ * Status Modifiers
+ *----------------------*/
+
+.mod-aera {
+  color: @--color-db-lightgrey;
 }
