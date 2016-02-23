@@ -17,14 +17,14 @@ io.use( logger.attach({
 
 io.on( 'connection', ctx => {
   logger.info( 'Client connected:', ctx.socket.id )
-  //ctx.io.emit( 'join', ctx )
 })
 
 io.on( 'message', ( ctx, data ) => {
   ctx.log.info( 'message event received:', data )
+
 })
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 app.server.listen( PORT, () => {
   logger.info( 'Listening on', PORT )
 })
