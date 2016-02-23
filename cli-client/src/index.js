@@ -3,7 +3,9 @@
 
 var IOC = require( 'socket.io-client' )
 var chalk = require( 'chalk' )
-var prompt = require( './prompt' )
+// var prompt = require( './prompt' )
+
+var app = require( './app' )
 
 const PORT = 3000
 
@@ -19,14 +21,14 @@ client.on( 'error', err => {
 
 client.on( 'connect', () => {
   console.log( 'Connection successful', chalk.grey( client.id ) )
-  prompt()
+  app.prompt()
 
-  function randomLog() {
-    prompt.log( 'what happens if we log all over readline', Math.random().toString( 16 ).substring( 2 ) )
-    setTimeout( randomLog, 2000 )
-  }
-
-  setTimeout( () => {
-    randomLog()
-  }, 1000 )
+  // function randomLog() {
+  //   app.log( 'what happens if we log all over readline', Math.random().toString( 16 ).substring( 2 ) )
+  //   setTimeout( randomLog, 2000 )
+  // }
+  //
+  // setTimeout( () => {
+  //   randomLog()
+  // }, 1000 )
 })

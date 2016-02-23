@@ -6,7 +6,20 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "supervisor -w src -n exit -t true -- src/index.js"
+    "clean": "rm -rf lib && mkdir lib",
+    "prebuild": "npm run clean",
+    "build": "babel src --out-dir lib",
+    "watch": "babel src --out-dir lib --watch",
+    "reload": "supervisor -w lib -n exit -t true -- lib",
+    "start": "( npm run watch & npm run reload )"
+  },
+  "babel": {
+    "presets": [
+      "node5"
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
   },
   "author": "Matt Styles <matt@veryfizzyjelly.com> (http://github.com/mattstyles)",
   "license": "ISC",
@@ -15,6 +28,9 @@
     "socket.io-client": "^1.4.5"
   },
   "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-class-properties": "^6.5.2",
+    "babel-preset-node5": "^10.6.0",
     "supervisor": "^0.9.1"
   }
 }
