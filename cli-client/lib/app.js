@@ -4,7 +4,7 @@
 const readline = require('readline');
 const chalk = require('chalk');
 
-const actions = require('./actions');
+const action = require('./action');
 
 class App {
   constructor() {
@@ -15,13 +15,7 @@ class App {
 
     this.onLine = line => {
       let input = line.trim();
-
-      if (actions[input]) {
-        actions[input](this.prompt);
-        return;
-      }
-
-      actions._default(this.prompt);
+      action.run(input);
     };
 
     this.log = this.log.bind(this);
@@ -42,6 +36,11 @@ class App {
     console.log(...arguments);
     process.stdout.write(this._prompt + line);
     this.read.resume();
+  }
+
+  exit(code) {
+    this.log('App exiting');
+    process.exit(code || 0);
   }
 }
 

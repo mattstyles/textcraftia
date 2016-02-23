@@ -1,10 +1,6 @@
 
 'use strict';
 
-const chalk = require('chalk');
-
-const actions = new Map();
-
 // class Actions {
 //   constructor() {
 //
@@ -32,6 +28,7 @@ const actions = new Map();
 class Actions {
   constructor() {
     this.app = null;
+    this.actions = new Map();
   }
 
   register(app) {
@@ -43,13 +40,19 @@ class Actions {
       console.warn('not ready to mount custom actions yet');
     }
 
-    actions.set('look', require('./actions/look')(this.app));
+    this.actions.set('default', require('./actions/default')(this.app));
+    this.actions.set('look', require('./actions/look')(this.app));
+    this.actions.set('exit', require('./actions/exit')(this.app));
+    this.actions.set('reply', require('./actions/reply')(this.app));
   }
 
   run(action) {
-
-    if (actions.has(action)) {
-      actions.get(action)();
+    if (this.actions.has(action)) {
+      // @TODO pass a context object through to actions
+      this.actions.get(action)({
+        context: 'this is the context object @TODO'
+      });
+      return;
     }
   }
 }

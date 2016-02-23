@@ -6,6 +6,10 @@ var chalk = require('chalk');
 // var prompt = require( './prompt' )
 
 var app = require('./app');
+var action = require('./action');
+
+action.register(app);
+action.mountActions();
 
 const PORT = 3000;
 
@@ -31,4 +35,8 @@ client.on('connect', () => {
   // setTimeout( () => {
   //   randomLog()
   // }, 1000 )
+
+  setTimeout(() => {
+    app.log('a log whilst readline is going');
+  }, 500);
 });
