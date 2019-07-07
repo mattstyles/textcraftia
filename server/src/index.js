@@ -19,6 +19,10 @@ io.on( 'connection', ctx => {
   logger.info( 'Client connected:', ctx.socket.id )
 })
 
+io.on( 'disconnect', ctx => {
+  logger.info( 'Client disconnected', ctx.socket.id )
+})
+
 io.on( 'message', ( ctx, data ) => {
   ctx.log.info( 'message event received:', data )
 
