@@ -1,0 +1,98 @@
+{
+  "name": "poc-add",
+  "private": true,
+  "version": "0.0.0",
+  "description": "@TODO description",
+  "main": "dist/index.html",
+  "scripts": {
+    "clean": "rimraf dist && mkdirp dist",
+    "lint": "standard",
+    "prebuild": "npm run clean",
+    "build": "NODE_PATH=src NODE_ENV=production parcel build src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "start": "NODE_PATH=src DEBUG=true parcel src/index.html"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "styled-components",
+      "transform-react-require",
+      "lodash",
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": false
+        }
+      ],
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ]
+        }
+      ]
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "**/node_modules/**",
+      "**/lib/"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattstyles/poc-add.git"
+  },
+  "keywords": [
+    "raid",
+    "react"
+  ],
+  "author": "mattstyles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattstyles/poc-add/issues"
+  },
+  "homepage": "https://mattstyles.github.io/poc-add",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "babel-plugin-transform-react-require": "^1.0.1",
+    "create-raid-app": "^3.1.0",
+    "gh-pages": "^2.0.1",
+    "mkdirp": "^0.5.1",
+    "parcel-bundler": "^1.12.3",
+    "rimraf": "^2.6.3",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "eventemitter3": "^4.0.0",
+    "history": "^4.9.0",
+    "lodash": "^4.17.11",
+    "most": "^1.7.3",
+    "open-color": "^1.6.3",
+    "prop-types": "^15.7.2",
+    "raid": "^3.0.0",
+    "raid-addons": "^3.0.0",
+    "raid-navigator": "^3.0.1",
+    "raid-streams": "^3.0.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0",
+    "reselect": "2.5.4",
+    "styled-components": "^4.3.2"
+  }
+}
