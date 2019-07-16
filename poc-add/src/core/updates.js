@@ -3,6 +3,7 @@ import { safe, compress } from 'raid-addons'
 
 import { actions } from './actions'
 import { getRandomMessage } from './messages'
+import { config } from './constants'
 
 export const example = safe((state, event) => {
   console.log(event, '::', state)
@@ -10,10 +11,11 @@ export const example = safe((state, event) => {
 
 const addMessage = (state, payload) => {
   const newMessage = getRandomMessage()
+  const { maxNumMessages } = config
 
   return {
     ...state,
-    messages: state.messages.concat(newMessage)
+    messages: state.messages.slice(-maxNumMessages).concat(newMessage)
   }
 }
 

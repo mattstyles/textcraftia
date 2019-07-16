@@ -1,4 +1,5 @@
 
+import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import oc from 'open-color'
 
@@ -11,7 +12,7 @@ const addMessage = dispatch(actions.addMessage)
 const Wrapper = styled('div')`
   background: rgb(244, 245, 249);
   width: 320px;
-  height: 640px;
+  height: 320px;
   padding: 10px;
   box-sizing: border-box;
   overflow: scroll;
@@ -29,8 +30,19 @@ const Button = styled('div')`
 `
 
 export const App = ({ state }) => {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    if (!ref) {
+      return null
+    }
+
+    // This happens after initial render, so things can get a little flashy
+    ref.current.scrollTo(0, 100000)
+  })
+
   return (
-    <Wrapper>
+    <Wrapper ref={ref}>
       {state.messages.map(msg => <Message>{msg}</Message>)}
       <Button onClick={addMessage}>
         Add more
