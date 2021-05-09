@@ -81,7 +81,7 @@
   "dependencies": {
     "eventemitter3": "^4.0.0",
     "history": "^4.9.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "most": "^1.7.3",
     "open-color": "^1.6.3",
     "prop-types": "^15.7.2",
